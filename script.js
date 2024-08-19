@@ -1,17 +1,21 @@
 function firstNonRepeatedChar(str) {
-  
-//  * create a frequency map; where we find all the frequency for each character
-const charFreq = {}; // charFreq["Name of Field"] 
-for(let char of str) {
-    charFreq[char] = (charFreq[char] || 0) + 1; // Language Specific || JS 
+//Approach 1
+for(let i=0;i<str.length;i++){
+if(str.indexOf(str[i])==str.lastIndexOf(str[i])){
+    return str[i]
 }
- 
-//  * Iterate over the string again and check if any character has frequency as 1. 
-//  *              If Yes; immediately return that particular character bcoz; it's was the first one
+}
+return null
+}	
+/* Approach 2
+const charFreq = {}; 
+for(let char of str) {
+    charFreq[char] = (charFreq[char] || 0) + 1;
+}
 for (let char of str) {
     if(charFreq[char] === 1) {
         return char
     }
 }
 return null;
-}
+*/	
